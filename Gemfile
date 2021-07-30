@@ -64,3 +64,20 @@ group :production do
   gem 'pg'
 end
 
+gem 'devise'
+
+gem 'jquery-rails'
+
+# ファイルアップロード
+gem 'carrierwave'
+
+# ページング
+gem 'kaminari'
+
+# 論理削除
+gem 'paranoia'
+
+# デバッグ用
+gem 'pry-rails'
+gem 'better_errors'
+
