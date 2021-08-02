@@ -12,6 +12,8 @@ class OrganizationsController < ApplicationController
 
   def create
     @org = Organization.new(org_params)
+    user = current_user
+    @org.user_id = user.id
     if @org.save
       redirect_to root_path
     else
@@ -26,6 +28,8 @@ class OrganizationsController < ApplicationController
 
   def org_params
     params.require(:organization).permit(
+      :user_id,
+      :project_id,
       :name,
       :name_kana,
       :corporate_form_id,
@@ -42,7 +46,6 @@ class OrganizationsController < ApplicationController
       :officer_name_kana,
       :officer_phone,
       :emergency_phone,
-      :project_id,
     )
   end
 

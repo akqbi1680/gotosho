@@ -7,25 +7,22 @@
       G0 T0 商店会 WEB応募専用ページ
     </h1>
     <% unless user_signed_in? %>
-      <%= link_to '新規事業者登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
+      <%= link_to 'アカウント登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
       <%= link_to 'ログインはこちら', new_user_session_path, class: 'top-button fs18' %>
-    <% end %>
-    <% if user_signed_in? %>
-      <% if Project.exists?(current_user.project_id) %>
-        <%= link_to '事業者ページはこちら', project_path(current_user.project_id), class: 'top-button fs18' %>
+    <% else %>
+
+      <% if Organization.exists?(user_id: current_user.id) %>
+        <% if Project.exists?(user_id: current_user.id) %>
+          <%= link_to '事業者ページはこちら', project_path(@project.id), class: 'top-button fs18' %>
+        <% else %>
+          <%= link_to '事業者登録（新規・追加）はこちら', new_organization_path, class: 'top-button fs18' %>
+          <%= link_to '新規事業申請はこちら', new_project_path, class: 'top-button fs18' %>
+        <% end %>
       <% else %>
-        <%= link_to '新規事業申請はこちら', new_project_path, class: 'top-button fs18' %>
+        <%= link_to '事業者登録（新規・追加）はこちら', new_organization_path, class: 'top-button fs18' %>
       <% end %>
 
       <%= link_to 'ログアウト', destroy_user_session_path, class: 'top-button', method: :delete %>
     <% end %>
   </div>
 </div>
-
-<!-- 未ログイン -->
-<!-- 新規登録、事業者ページ -->
-
-<!-- ログイン -->
-<!-- 新規登録、事業者ページ -->
-
-<!--  -->

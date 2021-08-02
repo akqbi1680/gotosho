@@ -2,8 +2,11 @@ class CreateOrganizations < ActiveRecord::Migration[6.1]
   def change
     create_table :organizations do |t|
 
-      t.string :name, null: false
-      t.string :name_kana, null: false
+      t.integer :user_id
+      t.integer :project_id, optional: true
+
+      t.string :name
+      t.string :name_kana
       t.integer :corporate_form_id # 法人格の種類
       t.integer :corporate_number # 1桁目は1〜9の整数(チェックデジット)のためinteger
       t.string :address_postal
@@ -18,7 +21,6 @@ class CreateOrganizations < ActiveRecord::Migration[6.1]
       t.string :officer_name_kana
       t.string :officer_phone # 担当者連絡先
       t.string :emergency_phone # 緊急連絡先
-      t.integer :project_id
 
       t.timestamps
     end

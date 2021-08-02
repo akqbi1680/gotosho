@@ -6,13 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Project.create(
-  name: 'A北海道札幌市AA商店街',
-  number: 20001,
-)
-Room.create(
-  project_id: 1
-)
 # Project.create(
 #   name: '東京都23区BB商店会',
 #   number: 20002
@@ -26,8 +19,17 @@ User.create(
 Organization.create(
   name: '北海道札幌市AA商店街',
   name_kana: 'ホッカイドウサッポロシエーエーショウテンガイ',
+  user_id: 1,
   project_id: 1
   # room_id: 1,
+)
+Project.create(
+  user_id: 1,
+  name: 'A北海道札幌市AA商店街',
+  number: 20001
+)
+Room.create(
+  project_id: 1
 )
 
 User.create(

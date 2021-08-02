@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2021_08_02_085331) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_kana", null: false
+    t.integer "user_id"
+    t.integer "project_id"
+    t.string "name"
+    t.string "name_kana"
     t.integer "corporate_form_id"
     t.integer "corporate_number"
     t.string "address_postal"
@@ -37,12 +39,12 @@ ActiveRecord::Schema.define(version: 2021_08_02_085331) do
     t.string "officer_name_kana"
     t.string "officer_phone"
     t.string "emergency_phone"
-    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "number"
     t.string "name"
     t.date "contract_start_at"
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_085331) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "category_id"
+    t.integer "category_id", default: 4, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -2,6 +2,8 @@ class CreateProjects < ActiveRecord::Migration[6.1]
   def change
     create_table :projects do |t|
 
+      t.integer :user_id
+
       t.integer :number # 事業番号
       t.string :name # 事業名
       t.date :contract_start_at
