@@ -6,9 +6,19 @@
     <h1 class="top-title">
       G0 T0 商店会 WEB応募専用ページ
     </h1>
-    <%= link_to '新規事業者登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
-    <%= link_to 'ログインはこちら', new_user_session_path, class: 'top-button fs18' %>
-    <%= link_to '事業者ページはこちら', new_project_path, class: 'top-button fs18' %>
+    <% unless user_signed_in? %>
+      <%= link_to '新規事業者登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
+      <%= link_to 'ログインはこちら', new_user_session_path, class: 'top-button fs18' %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if Project.exists?(current_user.project_id) %>
+        <%= link_to '事業者ページはこちら', project_path(current_user.project_id), class: 'top-button fs18' %>
+      <% else %>
+        <%= link_to '新規事業申請はこちら', new_project_path, class: 'top-button fs18' %>
+      <% end %>
+
+      <%= link_to 'ログアウト', destroy_user_session_path, class: 'top-button', method: :delete %>
+    <% end %>
   </div>
 </div>
 

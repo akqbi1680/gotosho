@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_031751) do
+ActiveRecord::Schema.define(version: 2021_08_02_085331) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
     t.integer "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.integer "corporate_form_id"
+    t.integer "corporate_number"
+    t.string "address_postal"
+    t.integer "address_prefecture_id"
+    t.string "address_city"
+    t.string "address_block"
+    t.string "address_bldg"
+    t.string "website"
+    t.string "rep_name"
+    t.string "rep_name_kana"
+    t.string "officer_name"
+    t.string "officer_name_kana"
+    t.string "officer_phone"
+    t.string "emergency_phone"
+    t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,24 +77,7 @@ ActiveRecord::Schema.define(version: 2021_07_31_031751) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
-    t.string "name_kana", null: false
-    t.string "corporate_form"
-    t.integer "corporate_number"
-    t.string "address_postal"
-    t.string "address_prefecture"
-    t.string "address_city"
-    t.string "address_block"
-    t.string "address_bldg"
-    t.string "website"
-    t.string "rep_name"
-    t.string "rep_name_kana"
-    t.string "officer_name"
-    t.string "officer_name_kana"
-    t.string "officer_phone"
-    t.string "emergency_phone"
-    t.string "category"
-    t.string "project_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
