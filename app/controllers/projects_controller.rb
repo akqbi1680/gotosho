@@ -29,9 +29,9 @@ class ProjectsController < ApplicationController
 
     if @project.save
 
-      User.all do |u|
+      # User.all do |u|
         
-      end
+      # end
 
       redirect_to project_path(@project.id)
     else
