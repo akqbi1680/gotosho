@@ -1,0 +1,107 @@
+<div class="org-new-wrapper">
+  <div class="org-new-container">
+    <h2 class="org-new-title">新規事業者登録</h2>
+
+    <%= form_with model: @org do |f| %>
+      <div class="org-new-field">
+        <p class="org-new-subtitle"></p>
+        <%= f.label :組織形態 %><br />
+        <%= f.radio_button :corporate_form_id, :'A: 法人格を有する商店街等の組織' %>
+        A）法人格を有する商店街等の組織<br>
+        <%= f.radio_button :corporate_form_id, :'B: Aに類する法人化されていない組織' %>
+        B）Aに類する法人化されていない組織<br>
+        <%= f.radio_button :corporate_form_id, :'B: Aに類する法人化されていない組織' %>
+        C）法人格を有する民間事業者<br>
+        <%= f.radio_button :corporate_form_id, :'B: Aに類する法人化されていない組織' %>
+        D）Cに類する法人化されていない組織<br>
+        <%= f.radio_button :corporate_form_id, :'B: Aに類する法人化されていない組織' %>
+        E）)商工会、商工会議所及びそれらの連合組織<br>
+      </div>
+
+      <div class="field">
+        <%= f.label :法人番号 %><br />
+        <%= f.text_field :corporate_number %>
+      </div>
+
+      <div class="field">
+        <%= f.label :団体名（代表者） %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :団体名フリガナ %><br />
+        <%= f.text_field :name_kana %>
+      </div>
+
+      <div class="field">
+        <%= f.label :郵便番号 %><br />
+        <%= f.text_field :address_postal %>
+      </div>
+
+      <div class="field">
+        <%= f.label :都道府県 %><br />
+        <%= f.select :address_prefecture_id, Organization.address_prefecture_ids.keys, {prompt: '選択してください'} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :市町村郡 %><br />
+        <%= f.text_field :address_city %>
+      </div>
+
+      <div class="field">
+        <%= f.label :住所 %><br />
+        <%= f.text_field :address_block %>
+      </div>
+
+      <div class="field">
+        <%= f.label :建物名等 %><br />
+        <%= f.text_field :address_bldg %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ウェブサイト %><br />
+        <%= f.text_field :website %>
+      </div>
+
+      <div class="field">
+        <%= f.label :代表者名 %><br />
+        <%= f.text_field :rep_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :代表者名カナ %><br />
+        <%= f.text_field :rep_name_kana %>
+      </div>
+
+      <div class="field">
+        <%= f.label :担当者名 %><br />
+        <%= f.text_field :officer_name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :担当者名カナ %><br />
+        <%= f.text_field :officer_name_kana %>
+      </div>
+
+      <div class="field">
+        <%= f.label :担当者連絡先 %><br />
+        <%= f.text_field :officer_phone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :緊急連絡先 %><br />
+        <%= f.text_field :emergency_phone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :緊急連絡先 %><br />
+        <%= f.text_field :emergency_phone %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

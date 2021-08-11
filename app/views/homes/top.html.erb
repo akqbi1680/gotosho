@@ -1,21 +1,41 @@
 <div class="top-wrapper">
   <p class="top-dummy-msg">
-    （こちらはダミーサイトです。実在する内容と関係ありません。）
+    （こちらはダミーサイトです。実在する内容と関係ありません。）<%= current_user.category_id if user_signed_in? %>
   </p>
   <div class="top-container cf">
     <h1 class="top-title">
       G0 T0 商店会 WEB応募専用ページ
     </h1>
-    <%= link_to '新規事業者登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
-    <%= link_to 'ログインはこちら', new_user_session_path, class: 'top-button fs18' %>
-    <%= link_to '事業者ページはこちら', new_project_path, class: 'top-button fs18' %>
+
+    <% unless user_signed_in? %>
+      <%= link_to 'アカウント登録はこちら', new_user_registration_path, class: 'top-button fs18' %>
+      <%= link_to 'ログインはこちら', new_user_session_path, class: 'top-button fs18' %>
+    <% else %>
+
+      <% if current_user.category_id == '事務局マスター' || current_user.category_id == '事務局審査' || current_user.category_id == '事務局' %>
+        <% if current_user.category_id == '事務局マスター' %>
+          <%= link_to '事務局ユーザの追加はこちら', users_path, class: 'top-button-orange fs18' %>
+        <% end %>
+
+        <%= link_to '事業者一覧はこちら', projects_path, class: 'top-button-orange fs18' %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class: 'top-button-orange fs18', method: :delete %>
+
+      <% elsif current_user.category_id == '事業者' %>
+        <% if Organization.exists?(user_id: current_user.id) %>
+          <% if Project.exists?(user_id: current_user.id) %>
+            <%= link_to '事業者ページはこちら', project_path(@project.id), class: 'top-button fs18' %>
+          <% else %>
+            <%= link_to '事業者登録（新規・追加）はこちら', new_organization_path, class: 'top-button fs18' %>
+            <%= link_to '新規事業申請はこちら', new_project_path, class: 'top-button fs18' %>
+          <% end %>
+        <% else %>
+          <%= link_to '事業者登録（新規・追加）はこちら', new_organization_path, class: 'top-button fs18' %>
+        <% end %>
+
+        <%= link_to 'ログアウト', destroy_user_session_path, class: 'top-button fs18', method: :delete %>
+
+      <% end %>
+
+    <% end %>
   </div>
 </div>
-
-<!-- 未ログイン -->
-<!-- 新規登録、事業者ページ -->
-
-<!-- ログイン -->
-<!-- 新規登録、事業者ページ -->
-
-<!--  -->

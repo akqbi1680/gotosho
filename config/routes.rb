@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :organizations
   resources :projects, only: [:index, :show, :new, :edit, :create, :update]
   resources :rooms, only: [:show, :create]
   resources :messages, only: [:create]

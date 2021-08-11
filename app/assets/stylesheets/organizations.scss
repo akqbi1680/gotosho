@@ -1,0 +1,40 @@
+// Place all the styles related to the organizations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.org-new-wrapper {
+}
+
+.org-new-container {
+  width: 95%;
+  max-width: 800px;
+  margin: 100px auto;
+}
+
+.org-new-title {
+  margin: 0 0 60px;
+  text-align: center;
+}
+
+.org-new-field {
+  margin-bottom: 12px;
+}
+
+.field {
+  margin-bottom: 12px;
+}
+
+.label {
+  display: inline;
+  width: 200px;
+}
+
+input[type="text"] {
+        width: 300px;
+        height: 2em;
+    }
+
+input[type="select"] {
+        width: 300px;
+        height: 2em;
+    }

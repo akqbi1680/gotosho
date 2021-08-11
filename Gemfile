@@ -65,6 +65,8 @@ group :production do
 end
 
 gem 'devise'
+gem 'devise-i18n' # 日本語化
+gem 'devise-i18n-views' # 日本語化
 
 gem 'jquery-rails'
 

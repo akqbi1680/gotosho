@@ -2,6 +2,8 @@ class CreateProjects < ActiveRecord::Migration[6.1]
   def change
     create_table :projects do |t|
 
+      t.integer :user_id
+
       t.integer :number # 事業番号
       t.string :name # 事業名
       t.date :contract_start_at
@@ -15,7 +17,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       # t.string :budget_outofpocket # 自己負担額 => 計算で出す
       t.string :outline # 事業概要
       t.string :description # 事業の具体的な実施内容
-      t.integer :status_screening # 審査状況(enum)
+      t.integer :status_screening_id # 審査状況(enum)
 
       t.integer :status_jigyoshajoho
       t.string :attachment_jigyoshajoho
