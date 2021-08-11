@@ -28,6 +28,11 @@ class ProjectsController < ApplicationController
     @project.status_screening_id = 2
 
     if @project.save
+
+      User.all do |u|
+        
+      end
+
       redirect_to project_path(@project.id)
     else
       render 'new'
