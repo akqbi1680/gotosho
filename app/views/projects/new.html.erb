@@ -1,0 +1,136 @@
+<div class="project-wrapper">
+  <div class="project-container">
+    <h1 class="project-title">
+      事業申請ページ
+    </h1>
+
+    <%= form_with model: @project do |f| %>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">契約開始日</p>
+        </div>
+        <div class="">
+          <%= f.date_field :contract_start_at, class: "r75 new-label" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">契約終了日</p>
+        </div>
+        <div class="">
+          <%= f.date_field :contract_end_at, class: "r75 new-label" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">支援対象エリア（活性化する商店街等）</p>
+        </div>
+        <div class="">
+          <%= f.text_field :area, id: "new-label", class: "r75" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">支援対象エリア（所在地）</p>
+        </div>
+        <div class="">
+          <%= f.text_field :address, id: "new-label", class: "r75" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">事業実施場所</p>
+        </div>
+        <div class="">
+          <%= f.text_field :location, id: "new-label", class: "r75" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">事業総額費</p>
+        </div>
+        <div class="r75">
+          <%= f.number_field :budget_total, class: "", id: "pjn1" %> 円
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">支援対象経費</p>
+        </div>
+        <div class="r75">
+          <%= f.number_field :budget_to_apply_for, class: "", id: "pjn2" %> 円
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">支援申請額</p>
+        </div>
+        <div class="r75">
+          <%= f.number_field :budget_to_apply, class: "", id: "pjn3" %> 円
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">自己負担額</p>
+        </div>
+        <div class="r75">
+          <%= f.number_field :budget_outofpocket, class: "", id: "pjn4" %> 円
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">事業概要</p>
+        </div>
+        <div class="">
+          <%= f.text_field :outline, id: "new-label", class: "r75" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">事業の具体的な実施内容</p>
+        </div>
+        <div class="r75">
+          <%= f.text_area :description, id: "new-label-tarea" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">実施開始日</p>
+        </div>
+        <div class="">
+          <%= f.date_field :event_start_at, class: "r75 new-label" %>
+        </div>
+      </span>
+
+      <span class="cf">
+        <div class="l25">
+          <p class="new-label">実施終了日</p>
+        </div>
+        <div class="">
+          <%= f.date_field :event_end_at, class: "r75 new-label" %>
+        </div>
+      </span>
+
+      <!-- t.integer :status_jigyoshajoho
+      t.string :attachment_jigyoshajoho
+      t.integer :status_renkeishinseiriyusho
+      t.string :attachment_renkeishinseiriyusho -->
+
+      <div class="txr">
+        <%= f.submit '事業申請', class: "project-new-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

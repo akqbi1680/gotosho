@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_08_02_085331) do
     t.string "budget_to_apply_for"
     t.string "outline"
     t.string "description"
-    t.integer "status_screening"
+    t.integer "status_screening_id"
     t.integer "status_jigyoshajoho"
     t.string "attachment_jigyoshajoho"
     t.integer "status_renkeishinseiriyusho"

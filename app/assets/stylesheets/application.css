@@ -32,3 +32,15 @@ a {
     display: block;
     clear: both;
 }
+
+.l25 {
+  float: left;
+  margin: 15px 0 10px;
+  width: 25%;
+}
+
+.r75 {
+  float: left;
+  margin: 15px 0 10px;
+  width: 75%;
+}
