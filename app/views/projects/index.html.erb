@@ -1,0 +1,43 @@
+<div class="project-wrapper">
+  <div class="project-container">
+    <h1 class="project-title">
+      事業者一覧ページ
+    </h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>事業者番号</th>
+          <th>事業者名</th>
+          <th>契約開始</th>
+          <th>契約終了</th>
+          <th>支援対象エリア（活性化する商店街等）</th>
+          <th>支援対象エリア（所在地）</th>
+          <th>事業実施場所</th>
+          <th>支援申請額</th>
+          <th>審査状況</th>
+        </tr>
+      </thead>
+
+      <% @projectsall.each do |p| %>
+        <tbody>
+          <tr>
+            <th><%= p.number %></th>
+            <th><%= p.name %></th>
+            <th><%= p.contract_start_at %></th>
+            <th><%= p.contract_end_at %></th>
+            <th><%= p.area %></th>
+            <th><%= p.address %></th>
+            <th><%= p.location %></th>
+            <th><%= p.budget_to_apply_for %></th>
+            <th><%= p.status_screening_id %></th>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+
+    <div class="txr">
+      <%= link_to 'トップへ戻る', root_path, class: 'project-new-button' %>
+    </div>
+  </div>
+</div>

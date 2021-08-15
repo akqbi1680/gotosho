@@ -3,8 +3,36 @@
     <h1 class="project-title">
       事業詳細ページ
     </h1>
+    <% if current_user.category_id = "事業者" %>
+      <% @projectsall.where(user_id: current_user).each do |p| %>
+        <p>事業者番号：<%= p.number %></p>
+        <p>事業者名：<%= p.name %></p>
+        <p>契約期間：<%= p.contract_start_at %>〜<%= p.contract_end_at %></p>
+        <p>支援対象エリア（活性化する商店街等）：<%= p.area %></p>
+        <p>支援対象エリア（所在地）：<%= p.address %></p>
+        <p>事業実施場所：<%= p.location %></p>
+        <p>事業総額費：<%= p.budget_total %></p>
+        <p>支援対象経費：<%= p.budget_to_apply_for %></p>
+        <p>支援申請額：<%#= p.budget_to_apply %></p>
+        <p>自己負担額：<%#= p.budget_outofpocket %></p>
+        <p>事業概要：<%= p.outline %></p>
+        <p>事業の具体的な実施内容：<%= p.description %></p>
 
+        <p>審査状況：<%= p.status_screening_id %></p>
 
+        <p>イベント開始：<%= p.event_start_at %></p>
+        <p>イベント終了：<%= p.event_end_at %></p>
 
+<!--       t.integer :status_jigyoshajoho
+      t.string :attachment_jigyoshajoho
+      t.integer :status_renkeishinseiriyusho
+      t.string :attachment_renkeishinseiriyusho -->
+
+      <% end %>
+    <% end %>
+
+    <div class="txr">
+      <%= link_to 'トップへ戻る', root_path, class: 'project-new-button' %>
+    </div>
   </div>
 </div>

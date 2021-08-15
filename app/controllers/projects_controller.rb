@@ -1,9 +1,14 @@
 class ProjectsController < ApplicationController
 
   def index
+    @projectsall = Project.all
   end
 
   def show
+    # if user_signed_in?
+      # if current_user.category_id = "事業者"
+        @projectsall = Project.all
+      # elsif current_user.category_id = "事業者"
   end
 
   def new
@@ -30,7 +35,7 @@ class ProjectsController < ApplicationController
     if @project.save
 
       # User.all do |u|
-        
+
       # end
 
       redirect_to project_path(@project.id)
